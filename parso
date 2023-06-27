@@ -1,0 +1,8 @@
+import parso
+
+module = parso.parse('hello + 1', version="3.9")
+expr = module.children[0]
+print(expr.get_code())  # Output: hello + 1
+name = expr.children[0]
+print(name.end_pos)  # Output: (1, 5)
+print(expr.end_pos)  # Output: (1, 9)
